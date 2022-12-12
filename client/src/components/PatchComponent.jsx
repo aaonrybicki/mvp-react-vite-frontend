@@ -6,7 +6,7 @@ import { useContext } from 'react';
 function FormData2() {
   const API_URL = "https://mvp-react-server.onrender.com"
   // const API_URL = "http://localhost:8001"
-  const {setDisplayMenuItems,setRefreshItems, refreshItems}=useContext(appContext);
+  const {setDisplayMenuItems,setRefreshItems, refreshItems, displayMenuItems }=useContext(appContext);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');

@@ -1,5 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { appContext } from '../App';
 
 
 function FormData1() {
@@ -10,7 +12,7 @@ function FormData1() {
   const [price, setPrice] = useState('');
   const [calories, setCalories] = useState('')
   const [menu_categories_id, setMenu_categories_id] = useState('')
-
+  const {setDisplayMenuItems, setRefreshItems,refreshItems, displayMenuItems}=useContext(appContext);
   const handleSubmit = (e) => {
   e.preventDefault();
   const update = {name, description, price, calories, menu_categories_id};
@@ -22,6 +24,9 @@ function FormData1() {
   })
   .then(() => {
     console.log('new item added');
+    setDisplayMenuItems(false)
+    setRefreshItems(!refreshItems)
+    setDisplayMenuItems(true);
     // setPending(false);
   })
 };
