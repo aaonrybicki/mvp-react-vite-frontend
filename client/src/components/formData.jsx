@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 
 function FormData1() {
+  const API_URL = "https://mvp-react-server.onrender.com"
+  // const API_URL = "http://localhost:8001"
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -13,7 +15,7 @@ function FormData1() {
   e.preventDefault();
   const update = {name, description, price, calories, menu_categories_id};
   console.log(update)
-  fetch('http://localhost:8001/menuItems', {
+  fetch(`${API_URL}/menuItems`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(update)

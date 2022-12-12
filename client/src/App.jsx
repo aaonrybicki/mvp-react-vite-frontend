@@ -22,8 +22,10 @@ function App() {
   homeButton, setHomeButton, modifyButton, setModifyButton, changeMenuItem, 
   setChangeMenuItem, deleteMenuItem, setDeleteMenuItem, refreshItems, setRefreshItems }
   //=======================routes================================//
+  const API_URL = "https://mvp-react-server.onrender.com"
+  // const API_URL = "http://localhost:8001"
   useEffect(() => {
-    fetch('http://localhost:8001/menuItems')
+    fetch(`${API_URL}/menuItems`)
       .then(
         response => response.json()
       )
@@ -35,7 +37,7 @@ function App() {
       )
   }, [refreshItems]);
   useEffect(() => {
-    fetch('http://localhost:8001/menuCategories')
+    fetch(`${API_URL}/menuCategories`)
       .then(
         response => response.json()
       )

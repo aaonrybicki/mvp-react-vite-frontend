@@ -9,9 +9,11 @@ import { appContext } from '../App';
 
 
 function Card1(props) {
+  const API_URL = "https://mvp-react-server.onrender.com"
+  // const API_URL = "http://localhost:8001"
   const {setDisplayMenuItems, displayMenuItems, refreshItems, setRefreshItems}=useContext(appContext);
   function deleteClick() {
-    fetch('http://localhost:8001/menuItems/'+ props.cardData.id, {
+    fetch(`${API_URL}/menuItems/`+ props.cardData.id, {
       method: 'DELETE',
       mode: 'cors'
     })

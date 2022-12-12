@@ -4,6 +4,8 @@ import { appContext } from '../App';
 import { useContext } from 'react';
 
 function FormData2() {
+  const API_URL = "https://mvp-react-server.onrender.com"
+  // const API_URL = "http://localhost:8001"
   const {setDisplayMenuItems,setRefreshItems, refreshItems}=useContext(appContext);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -15,7 +17,7 @@ const handleSubmitPatch = (e) => {
   e.preventDefault();
   const update = {name, description, price, calories, menu_categories_id};
   console.log(update)
-  fetch('http://localhost:8001/menuItems', {
+  fetch(`${API_URL}/menuItems`, {
     method: 'PATCH',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(update)
